@@ -1,0 +1,17 @@
+from multiprocessing import Process
+import os
+def a():
+	for r in range(10):
+		response = os.system("ping -c 10 192.168.56.109")
+		print(response)
+def b():
+	for r in range(10):
+		response = os.system("ping -l 300 -c 1000000 -i 0.00001 -q 192.168.56.109")
+		print('b',r*10)
+def c():
+	for r in range(10):
+		response = os.system("ping -l 300 -c 1000000 -i 0.00001 -q 192.168.56.109")
+		print('c',r*10)
+p1 = Process(target = a)
+p1.start()
+
